@@ -5,3 +5,4 @@ output chart {
 output status {
   value       = helm_release.helm_chart.status
 }
+
