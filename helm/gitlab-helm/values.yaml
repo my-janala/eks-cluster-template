@@ -1,0 +1,32 @@
+global:
+  hosts:
+    domain: ""  # No custom domain
+    externalIP: ""  # AWS LoadBalancer IP/hostname will be used
+
+  ingress:
+    enabled: false  # Disable ingress for simplicity
+
+  storage:
+    class: gp2  # Default AWS storage class
+
+gitlab:
+  webservice:
+    service:
+      type: LoadBalancer  # Use LoadBalancer to expose the service
+    replicas: 1  # Single replica for PoC
+  gitaly:
+    persistence:
+      size: 10Gi
+      storageClass: gp2
+
+postgresql:
+  enabled: true
+  persistence:
+    size: 5Gi
+    storageClass: gp2
+
+redis:
+  enabled: true
+  persistence:
+    size: 5Gi
+    storageClass: gp2
